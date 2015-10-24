@@ -58,12 +58,13 @@ module.exports = function memoize( fn ) {
   const cache = new Cache();
 
   return function() {
-    const saved = cache.get( arguments );
+    // get (or create) a cache item
+    const item = cache.get( arguments );
 
-    if ( saved.hasOwnProperty( vkey ) ) {
-      return saved[ vkey ];
+    if ( item.hasOwnProperty( vkey ) ) {
+      return item[ vkey ];
     }
 
-    return saved[ vkey ] = fn.apply( this, arguments );
+    return item[ vkey ] = fn.apply( this, arguments );
   }
 };
