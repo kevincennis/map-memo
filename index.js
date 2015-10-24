@@ -16,9 +16,9 @@ class Cache {
     let item = this;
 
     for ( let value of keys ) {
-      const map = Cache.isObject( value ) ? wmkey : mkey;
+      const map = item[ Cache.isObject( value ) ? wmkey : mkey ];
 
-      let cache = item[ map ].get( value );
+      let cache = map.get( value );
 
       if ( cache ) {
         item = cache;
@@ -27,7 +27,7 @@ class Cache {
 
       cache = new Cache();
 
-      item[ map ].set( value, cache );
+      map.set( value, cache );
       item = cache;
     }
 
