@@ -11,11 +11,6 @@ class Cache {
     this[ wmkey ] = new WeakMap();
   }
 
-  // assign a value to a given set of arguments
-  set( keys, value ) {
-    return this.get( keys )[ vkey ] = value;
-  }
-
   // create or retrieve a nested Cache instance based on a set of arguments
   get( keys ) {
     let item = this;
@@ -69,6 +64,6 @@ module.exports = function memoize( fn ) {
       return saved[ vkey ];
     }
 
-    return cache.set( arguments, fn.apply( this, arguments ) );
+    return saved[ vkey ] = fn.apply( this, arguments );
   }
 };
