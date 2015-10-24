@@ -43,7 +43,7 @@ class Cache {
   // can the given value be saved in a WeakMap, or do we
   // have to use a Map?
   static isObject( arg ) {
-    let t = typeof arg;
+    const t = typeof arg;
 
     switch ( t ) {
       case 'string':
@@ -63,7 +63,7 @@ module.exports = function memoize( fn ) {
   const cache = new Cache();
 
   return function() {
-    let saved = cache.get( arguments );
+    const saved = cache.get( arguments );
 
     if ( saved.hasOwnProperty( vkey ) ) {
       return saved[ vkey ];
