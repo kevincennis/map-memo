@@ -1,13 +1,13 @@
 'use strict';
 
-const mkey = Symbol('map');
+const mkey  = Symbol('map');
 const wmkey = Symbol('weakmap');
-const vkey = Symbol('value');
+const vkey  = Symbol('value');
 
 class Cache {
 
   constructor() {
-    this[ mkey ] = new Map();
+    this[ mkey ]  = new Map();
     this[ wmkey ] = new WeakMap();
   }
 
@@ -15,11 +15,10 @@ class Cache {
   get( keys ) {
     let item = this;
 
-    for ( let i = 0; i < keys.length; ++i ) {
-      const value = keys[ i ];
-      const isObject = Cache.isObject( value );
+    for ( let value of keys ) {
+      const map = Cache.isObject( value ) ? wmkey : mkey;
 
-      let cache = item[ isObject ? wmkey : mkey ].get( value );
+      let cache = item[ map ].get( value );
 
       if ( cache ) {
         item = cache;
@@ -28,7 +27,7 @@ class Cache {
 
       cache = new Cache();
 
-      item[ isObject ? wmkey : mkey ].set( value, cache );
+      item[ map ].set( value, cache );
       item = cache;
     }
 
