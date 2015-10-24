@@ -1,6 +1,8 @@
 memoize
 ===
 
+[![Built Status](https://codeship.com/projects/45348fb0-5c91-0133-11c0-5e493a25d753/status?branch=master)](https://codeship.com/projects/110961/)
+
 Generic memoization using `Map` and `WeakMap`.
 
 ```js
