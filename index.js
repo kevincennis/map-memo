@@ -17,18 +17,14 @@ class Cache {
 
     for ( let value of keys ) {
       const map = item[ Cache.isObject( value ) ? wmkey : mkey ];
-
-      let cache = map.get( value );
+      const cache = map.get( value );
 
       if ( cache ) {
         item = cache;
         continue;
       }
 
-      cache = new Cache();
-
-      map.set( value, cache );
-      item = cache;
+      map.set( value, item = new Cache() );
     }
 
     return item;
