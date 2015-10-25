@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const memoize = require('../index');
+const memoize = require('../lib/index');
 
 // sample types
 const types = [

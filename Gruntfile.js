@@ -6,10 +6,10 @@ module.exports = function( grunt ) {
       options: {
         jshintrc: true
       },
-      src: [ 'index.js' ]
+      src: [ 'lib/**/*.js' ]
     },
     jscs: {
-      src: 'index.js',
+      src: [ 'lib/**/*.js' ],
       options: {
         config: '.jscsrc'
       }
