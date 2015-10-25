@@ -1,5 +1,5 @@
 {
-  "name": "memoize",
+  "name": "map-memo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

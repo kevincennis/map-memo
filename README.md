@@ -8,7 +8,7 @@ Generic memoization using `Map` and `WeakMap`.
 ```js
 'use strict';
 
-const memoize = require('memoize');
+const memoize = require('map-memo');
 
 function loop( fn, n ) {
   let v;
