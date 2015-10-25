@@ -1,15 +1,28 @@
 {
   "name": "map-memo",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "Generic memoization with Map and WeakMap",
+  "author": "Kevin Ennis <kennis84@gmail.com",
   "scripts": {
     "test": "grunt"
   },
-  "author": "Kevin Ennis",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevincennis/map-memo"
+  },
+  "bugs": {
+    "url": "https://github.com/kevincennis/map-memo/issues"
+  },
+  "keywords": [
+    "memoize",
+    "map",
+    "weakmap",
+    "es6"
+  ],
   "license": "MIT",
   "engines": {
-     "node": ">= 4.0.0"
+    "node": ">= 4.0.0"
   },
   "devDependencies": {
     "grunt": "0.4.5",
