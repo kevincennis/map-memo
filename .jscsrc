@@ -3,6 +3,6 @@
   "validateQuoteMarks": "'",
   "requireSpacesInsideParentheses": {
     "all": true,
-    "except": [ "{", "}", "'" ]
+    "except": [ "{", "}", "function", "'" ]
   }
 }
