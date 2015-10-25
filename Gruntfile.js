@@ -2,6 +2,12 @@ module.exports = function( grunt ) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      src: [ 'index.js' ]
+    },
     jscs: {
       src: 'index.js',
       options: {
@@ -18,7 +24,8 @@ module.exports = function( grunt ) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.registerTask( 'default', [ 'jscs', 'mochaTest' ] );
+  grunt.registerTask( 'default', [ 'jshint', 'jscs', 'mochaTest' ] );
 };
