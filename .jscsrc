@@ -1,0 +1,8 @@
+{
+  "preset": "idiomatic",
+  "validateQuoteMarks": "'",
+  "requireSpacesInsideParentheses": {
+    "all": true,
+    "except": [ "{", "}", "'" ]
+  }
+}

@@ -61,5 +61,5 @@ module.exports = function memoize( fn ) {
     }
 
     return item[ vkey ] = fn.apply( this, arguments );
-  }
+  };
 };
