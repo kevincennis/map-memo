@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt"
   },
-  "main": "lib/index.js",
+  "main": "lib/map-memo.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kevincennis/map-memo"
