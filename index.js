@@ -34,17 +34,7 @@ class Cache {
   // have to use a Map?
   static isObject( arg ) {
     const t = typeof arg;
-
-    switch ( t ) {
-      case 'string':
-      case 'number':
-      case 'boolean':
-      case 'symbol':
-      case 'undefined':
-        return false;
-    }
-
-    return arg !== null;
+    return ( t === 'object' || t === 'function' ) ? arg !== null : false;
   }
 
 }
