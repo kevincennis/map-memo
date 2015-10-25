@@ -14,11 +14,7 @@ class Cache {
 
   // create or retrieve a nested Cache instance based on a set of arguments
   get( keys ) {
-    return keys.reduce(function( item, value ) {
-      const map = item[ Cache.isObject( value ) ? wmkey : mkey ];
-      const cache = map.get( value );
-      return cache || map.set( value, new Cache() ).get( value );
-    }, this );
+    return keys.reduce( Cache.reduce, this );
   }
 
   // can the given value be saved in a WeakMap, or do we
@@ -26,6 +22,13 @@ class Cache {
   static isObject( arg ) {
     const t = typeof arg;
     return ( t === 'object' || t === 'function' ) ? arg !== null : false;
+  }
+
+  // reducer for #get()
+  static reduce( item, value ) {
+    const map = item[ Cache.isObject( value ) ? wmkey : mkey ];
+    const cache = map.get( value );
+    return cache || map.set( value, new Cache() ).get( value );
   }
 
 }
