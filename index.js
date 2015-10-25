@@ -3,6 +3,7 @@
 const mkey  = Symbol('map');
 const wmkey = Symbol('weakmap');
 const vkey  = Symbol('value');
+const slice = Array.prototype.slice;
 
 class Cache {
 
@@ -13,21 +14,11 @@ class Cache {
 
   // create or retrieve a nested Cache instance based on a set of arguments
   get( keys ) {
-    let item = this;
-
-    for ( let value of keys ) {
+    return keys.reduce(function( item, value ) {
       const map = item[ Cache.isObject( value ) ? wmkey : mkey ];
       const cache = map.get( value );
-
-      if ( cache ) {
-        item = cache;
-        continue;
-      }
-
-      map.set( value, item = new Cache() );
-    }
-
-    return item;
+      return cache || map.set( value, new Cache() ).get( value );
+    }, this );
   }
 
   // can the given value be saved in a WeakMap, or do we
@@ -44,7 +35,7 @@ module.exports = function memoize( fn ) {
 
   return function() {
     // get (or create) a cache item
-    const item = cache.get( arguments );
+    const item = cache.get( slice.call( arguments ) );
 
     if ( item.hasOwnProperty( vkey ) ) {
       return item[ vkey ];
