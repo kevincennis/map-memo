@@ -14,18 +14,25 @@ module.exports = function( grunt ) {
         config: '.jscsrc'
       }
     },
-    mochaTest: {
+    mocha_istanbul: {
       test: {
+        src: 'test/test.js',
         options: {
-          reporter: 'spec'
-        },
-        src: [ 'test/test.js' ]
+          reportFormats: [ 'html' ],
+          check: {
+            lines: 100,
+            statements: 100,
+            branches: 100,
+            functions: 100
+          },
+          print: 'detail'
+        }
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jscs');
-  grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.registerTask( 'default', [ 'jshint', 'jscs', 'mochaTest' ] );
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.registerTask( 'default', [ 'jshint', 'jscs', 'mocha_istanbul' ] );
 };
