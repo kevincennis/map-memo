@@ -15,13 +15,13 @@ const types = [
   Symbol('foo')
 ];
 
-describe( 'memoize', function() {
+describe( 'memoize', () => {
 
-  it( 'should be a function', function() {
+  it( 'should be a function', () => {
     assert.equal( typeof memoize, 'function' );
   });
 
-  it( 'should return a value', function() {
+  it( 'should return a value', () => {
     function sqrt( n ) {
       return Math.sqrt( n );
     }
@@ -33,10 +33,10 @@ describe( 'memoize', function() {
   });
 
   // check all cache types
-  types.forEach(function( val ) {
+  types.forEach( val => {
     let type = val === null ? 'null' : typeof val;
 
-    it( 'should cache ' + type, function() {
+    it( 'should cache ' + type, () => {
       let calls = 0;
       let result;
 
@@ -56,7 +56,7 @@ describe( 'memoize', function() {
     });
   });
 
-  it( 'should cache multiple arguments', function() {
+  it( 'should cache multiple arguments', () => {
     let calls = 0;
     let result;
 
@@ -75,7 +75,7 @@ describe( 'memoize', function() {
     assert.equal( first, second, 'Cached result is incorrect' );
   });
 
-  it( 'should not return cached results for mismatched arguments', function() {
+  it( 'should not return cached results for mismatched arguments', () => {
     let calls = 0;
 
     function fn() {
@@ -92,7 +92,7 @@ describe( 'memoize', function() {
     assert.notEqual( first, second, 'Result was cached' );
   });
 
-  it( 'should cache calls with no args', function() {
+  it( 'should cache calls with no args', () => {
     let calls = 0;
     let result;
 
@@ -111,7 +111,7 @@ describe( 'memoize', function() {
     assert.equal( first, second, 'Cached result is incorrect' );
   });
 
-  it( 'should cache falsy values', function() {
+  it( 'should cache falsy values', () => {
     let calls = 0;
     let result;
 
