@@ -8,11 +8,8 @@ module.exports = function( grunt ) {
       },
       src: [ 'lib/**/*.js' ]
     },
-    jscs: {
-      src: [ 'lib/**/*.js' ],
-      options: {
-        config: '.jscsrc'
-      }
+    eslint: {
+      target: [ 'lib/**/*.js' ]
     },
     mocha_istanbul: {
       test: {
@@ -25,14 +22,15 @@ module.exports = function( grunt ) {
             branches: 100,
             functions: 100
           },
-          print: 'detail'
+          print: 'detail',
+          root: 'lib'
         }
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
-  grunt.registerTask( 'default', [ 'jshint', 'jscs', 'mocha_istanbul' ] );
+  grunt.registerTask( 'default', [ 'jshint', 'eslint', 'mocha_istanbul' ] );
 };
