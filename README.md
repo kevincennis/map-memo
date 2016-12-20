@@ -1,3 +1,8 @@
+# UPDATE
+
+Moved to https://github.com/StarryInternet/missive
+
+
 map-memo
 ===
 
