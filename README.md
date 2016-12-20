@@ -1,6 +1,6 @@
 # UPDATE
 
-Moved to https://github.com/StarryInternet/missive
+Moved to https://github.com/StarryInternet/map-memo
 
 
 map-memo
